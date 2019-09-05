@@ -49,4 +49,10 @@ a.list-group-item:hover {
 .form{
     position: absolute;
     z-index: 1;
+    width: 40%;
+}
+@media (max-width: 550px) {
+    .form{
+        width: 90%;
+    }
 }

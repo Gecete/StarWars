@@ -55,7 +55,7 @@ export class SearchComponent {
     this.apiSearchService.get(text)
       .subscribe(value => {
         this.spinner = false;
-        if(value.results.length!=0){
+        if(value.results.length!==0){
           this.results = value.results;
           this.noResults=false;
        }else{

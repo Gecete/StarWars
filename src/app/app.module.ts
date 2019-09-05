@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SearchComponent } from './components/search/search.component';
@@ -15,7 +15,9 @@ import { MatCardModule } from '@angular/material';
     AppComponent,
     SearchComponent,
     CardComponent
-  ],
+  ],schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
