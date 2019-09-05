@@ -2,11 +2,12 @@ import { Component, Input, SimpleChanges } from '@angular/core';
 import { IPeopleResults } from '../../services/interfacePeopleResults';
 import { ApiSearchService } from '../../services/api-search.service';
 import { forkJoin } from 'rxjs/observable/forkJoin';
-import { HttpClient } from '@angular/common/http';
 import { IFilms } from '../../services/interfaceFilms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/forkJoin';
-
+// This component shows a card with information from the selected character
+// Recieves the data through its input 'character' and shows it in the screen
+// It does another serve query to get all the movie titles where the character has appeared.
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -17,7 +18,7 @@ export class CardComponent {
   films:string[];
   filmObj: Object;
   loaded:boolean=false;
-  constructor(private apiSearchService: ApiSearchService, private http: HttpClient) {
+  constructor(private apiSearchService: ApiSearchService) {
     
   }
 
@@ -25,6 +26,7 @@ export class CardComponent {
    return this.apiSearchService.getFilms(text)
   }
 
+  //ForkJoin to and subscription to get all data at ones when all request have finished
   getAllMovies(films:string[]){
     let list=[];
     films.forEach(element => {

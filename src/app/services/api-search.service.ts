@@ -11,8 +11,8 @@ export class ApiSearchService {
 
     private headers: Headers = new Headers();
     private requestOptions: RequestOptionsArgs = {};
-    private apiServer: string = "https://swapi.co/api/";//https://swapi.co/api/people/?search=r
-    //https://es.wikipedia.org/w/api.php?action=query&prop=pageimages&titles=Anakin%20Skywalker&pithumbsize=500
+    private apiServer: string = "https://swapi.co/api/";
+    
     constructor(private http: HttpClient) {
 
     }
@@ -33,8 +33,5 @@ export class ApiSearchService {
         }
         return url;
     }
-
-
-
 
 }

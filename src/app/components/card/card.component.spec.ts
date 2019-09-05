@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CardComponent } from './card.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { ApiSearchService } from '../../services/api-search.service';
 
 describe('CardComponent', () => {
   let component: CardComponent;
@@ -8,7 +11,9 @@ describe('CardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardComponent ]
+      declarations: [ CardComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers:[HttpClient, HttpHandler, ApiSearchService]
     })
     .compileComponents();
   }));
