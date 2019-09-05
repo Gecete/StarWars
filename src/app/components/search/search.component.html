@@ -1,0 +1,33 @@
+<div class="form">
+  <form autocomplete="off">
+    <div class="form-group">
+
+
+      <input [(ngModel)]="textInput" type="text" class="form-control" name="character" placeholder="Search character" (keydown)="hideNoResults()">
+      <div *ngIf="textInput!='' && spinner" class="spinner-border mt-3" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div *ngIf="noResults">
+        <p class="mt-4">No Results for </p>
+        <i>"{{textInput}}"</i>
+      </div>
+
+      <ul class="list-group scrollbar scrollbar-juicy-peach" *ngIf="(!spinner && results) && click">
+        <li class="list-group-item force-overflow" *ngFor="let result of results | slice:0:show">
+          <a class="list-group-item list-group-item-action" (click)="selected(result)" href="#">
+            {{ result.name }}
+          </a>
+        </li>
+        <li class="list-group-item force-overflow" *ngIf="results.length>5 && show==5">
+
+          <a class="list-group-item more list-group-item-action" (click)="showAll()">
+            <i class="fa fa-chevron-circle-down fa-xs"></i>
+            More
+          </a>
+          <p class="mt-4"> Total results {{ total }}</p>
+        </li>
+      </ul>
+
+    </div>
+  </form>
+</div>

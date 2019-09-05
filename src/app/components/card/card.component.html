@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title class="titleStyle">{{character.name}}</mat-card-title>
+  </mat-card-header>
+  <!-- <img mat-card-image  src="https://es.wikipedia.org/w/api.php?action=query&prop=pageimages&titles={{character.name}}&pithumbsize=500" alt="Photo of a Shiba Inu"> -->
+  <mat-card-content>
+    <div *ngIf="loaded" class="row">
+      <div class="col-md-3 col-sm-12">
+        <h5>Birth Year</h5>
+        <p>{{character.birth_year}}</p>
+        <h5>Gender</h5>
+        <p>{{character.gender}}</p>
+        <h5>Height</h5>
+        <p>{{character.height}} cm</p>
+      </div>
+      <div class="col-md-3 col-sm-12">
+        <h5>Eye color</h5>
+        <p>{{character.eye_color}}</p>
+        <h5>Hair color</h5>
+        <p>{{character.hair_color}}</p>
+        <h5>Skin color</h5>
+        <p>{{character.skin_color}}</p>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <h5>Movies</h5>
+        <ul class="list-unstyled">
+          <li *ngFor="let film of filmObj">
+            <p>- Episode {{film.episode_id}}: {{film.title}}</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div *ngIf="!loaded" class="spinner-border mt-3" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </mat-card-content>
+</mat-card>
