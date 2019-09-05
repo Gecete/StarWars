@@ -74,6 +74,7 @@ export class SearchComponent {
       }),
       error => {
         console.log(error);
+        this.spinner = false;
       },
       () => {
         this.spinner = false;
