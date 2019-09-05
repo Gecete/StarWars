@@ -38,6 +38,7 @@ export class CardComponent {
   }),
   error => {
     console.log(error);
+    this.loaded=true;
   },
   () => {
     this.loaded=true;
