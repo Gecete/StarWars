@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { IPeople } from "./interfacePeople"
 import { IFilms } from './interfaceFilms';
-
+// This service is incharged of all the API calls. 
+// There are 2 different endpoints to fetch characters and to fetch films
 @Injectable()
 export class ApiSearchService {
 
@@ -20,7 +21,7 @@ export class ApiSearchService {
     get(endPoint: string): Observable<IPeople> {
         return this.http.get<IPeople>(this.createUrl(endPoint));
     }
-
+// Endpoint is directly the URL provided by the API from previous query to /people/
     getFilms(endPoint: string): Observable<IFilms> {
         return this.http.get<IFilms>(endPoint);
     }
